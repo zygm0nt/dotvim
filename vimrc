@@ -12,6 +12,8 @@ set expandtab
 "set nu
 set cul
 set shiftwidth=4
+set history=1000
+set viminfo='1000,f1,<500
 
 set foldmethod=marker
 
@@ -21,3 +23,5 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
 filetype plugin indent on
+
+cmap w!! w !sudo tee % >/dev/null
