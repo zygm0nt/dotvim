@@ -7,3 +7,9 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/pyflakes"]
+	path = bundle/pyflakes
+	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "bundle/pyflakes-vim"]
+	path = bundle/pyflakes-vim
+	url = https://github.com/kevinw/pyflakes-vim.git

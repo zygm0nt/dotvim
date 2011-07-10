@@ -20,3 +20,4 @@ autocmd Filetype python setlocal ts=2 sts=2 sw=2 expandtab ai
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
+filetype plugin indent on
