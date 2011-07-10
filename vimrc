@@ -1,3 +1,5 @@
+call pathogen#runtime_append_all_bundles()
+
 set tw=72
 set tabstop=4
 set sw=4
