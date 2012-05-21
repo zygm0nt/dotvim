@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/marcin/working-space/new/active/shop_tools/auctions'
-let g:netrw_dirhist_2='/home/marcin/working-space/new/active/shop_tools/templates/main'
-let g:netrw_dirhist_3='/home/marcin/working-space/new/active/shop_tools'
-let g:netrw_dirhist_4='/home/marcin/working-space/new/active/shop_tools/main/shop_tools'
-let g:netrw_dirhist_5='/home/marcin/working-space/new/active/shop_tools/py-allegro/resources'
-let g:netrw_dirhist_6='/tmp/flask/examples/flaskr/static'
-let g:netrw_dirhist_7='/home/marcin/working-space/new/active/shop_tools/auctions'
-let g:netrw_dirhist_8='/home/marcin/working-space/new/active/shop_tools/complaints/templatetags'
-let g:netrw_dirhist_9='/etc/modprobe.d'
+let g:netrw_dirhist_cnt =0
