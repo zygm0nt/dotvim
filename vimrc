@@ -1,3 +1,7 @@
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = []
+call add(g:pathogen_disabled, 'pyflakes-vim') 
+
 filetype off 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
