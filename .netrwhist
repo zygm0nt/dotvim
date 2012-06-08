@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/marcin/working-space/new/active/shop_tools/auctions'
-let g:netrw_dirhist_2='/home/mcl/sandbox/squirrel-sql-3.3.0/update'
-let g:netrw_dirhist_3='/media/who_vaccine_proofs/work_related/hadoop-projects/hive/eclipse-templates'
-let g:netrw_dirhist_4='/home/mcl/sandbox/smx-projects/mvno/process-mvno-mnp/camel-su/src/test/java/pl/touk/p4esb/mvno/idempotence/.svn'
-let g:netrw_dirhist_5='/media/who_vaccine_proofs/work_related/hadoop-projects/hive/build'
-let g:netrw_dirhist_6='/media/who_vaccine_proofs/work_related/smx-projects/odeo/axis2-war/src/test/java/org/apache/ode/axis2/instancecleanup'
-let g:netrw_dirhist_7='/media/who_vaccine_proofs/work_related/smx-projects/mnp/manager/manager-git/.git/branches'
