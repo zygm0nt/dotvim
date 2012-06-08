@@ -29,3 +29,7 @@ let g:syntastic_auto_loc_list=1
 filetype plugin indent on
 
 cmap w!! w !sudo tee % >/dev/null
+
+augroup filetypedetect 
+  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig 
+augroup END
