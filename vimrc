@@ -2,6 +2,8 @@
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled, 'pyflakes-vim') 
 
+let g:Powerline_symbols = 'fancy'
+
 filetype off 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
@@ -33,3 +35,5 @@ cmap w!! w !sudo tee % >/dev/null
 augroup filetypedetect 
   au BufNewFile,BufRead *.pig set filetype=pig syntax=pig 
 augroup END
+
+set laststatus=2
