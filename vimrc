@@ -5,8 +5,10 @@ call add(g:pathogen_disabled, 'pyflakes-vim')
 filetype off 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
-
 filetype plugin on
+
+set nocompatible
+set modelines=0
 
 set tw=72
 set tabstop=4
@@ -18,6 +20,11 @@ set cul
 set shiftwidth=4
 set history=1000
 set viminfo='1000,f1,<500
+set ruler
+set showcmd
+set showmode
+set ttyfast
+set laststatus=2
 
 set foldmethod=marker
 
@@ -30,6 +37,34 @@ filetype plugin indent on
 
 cmap w!! w !sudo tee % >/dev/null
 
+"autocmd FocusLost * :wa  " save on losing focus
+
 augroup filetypedetect 
   au BufNewFile,BufRead *.pig set filetype=pig syntax=pig 
 augroup END
+
+
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+"nnoremap j gj
+"nnoremap k gk
+
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+
+let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
+if &term == "screen"
+      set t_ts=^[k
+      set t_fs=^[\
+endif
+if &term == "screen" || &term == "xterm"
+    set title
+endif
