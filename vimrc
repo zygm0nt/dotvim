@@ -2,6 +2,8 @@
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled, 'pyflakes-vim') 
 
+let g:Powerline_symbols = 'fancy'
+
 filetype off 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
@@ -68,3 +70,5 @@ endif
 if &term == "screen" || &term == "xterm"
     set title
 endif
+
+set laststatus=2
