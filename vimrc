@@ -6,7 +6,8 @@ let g:Powerline_symbols = 'fancy'
 
 filetype off 
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 filetype plugin on
 
 set nocompatible
@@ -70,5 +71,3 @@ endif
 if &term == "screen" || &term == "xterm"
     set title
 endif
-
-set laststatus=2
