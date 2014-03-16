@@ -71,3 +71,5 @@ endif
 if &term == "screen" || &term == "xterm"
     set title
 endif
+
+cnoremap sudow w !sudo tee % >/dev/null
