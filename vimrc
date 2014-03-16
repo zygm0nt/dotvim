@@ -30,6 +30,8 @@ set ttyfast
 set laststatus=2
 
 set foldmethod=marker
+set fillchars+=vert:\ 
+
 
 autocmd Filetype python setlocal ts=2 sts=2 sw=2 expandtab ai
 
