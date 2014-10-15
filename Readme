@@ -29,3 +29,7 @@ git submodule init
 git submodule update
 
 
+---------
+
+Clojure additions inspired by
+http://www.neo.com/2014/02/25/getting-started-with-clojure-in-vim

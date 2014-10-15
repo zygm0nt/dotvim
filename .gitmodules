@@ -25,3 +25,18 @@
 [submodule "bundle/scala"]
 	path = bundle/scala
 	url = https://github.com/derekwyatt/vim-scala
+[submodule "bundle/vim-clojure-static"]
+	path = bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static
+[submodule "bundle/vim-fireplace"]
+	path = bundle/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace
+[submodule "bundle/rainbow_parentheses"]
+	path = bundle/rainbow_parentheses
+	url = https://github.com/kien/rainbow_parentheses.vim
+[submodule "bundle/vim-sexp"]
+	path = bundle/vim-sexp
+	url = https://github.com/guns/vim-sexp
+[submodule "bundle/vim-sexp-mappings-for-regular-people"]
+	path = bundle/vim-sexp-mappings-for-regular-people
+	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people

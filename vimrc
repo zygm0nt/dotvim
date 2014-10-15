@@ -75,3 +75,8 @@ if &term == "screen" || &term == "xterm"
 endif
 
 cnoremap sudow w !sudo tee % >/dev/null
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
