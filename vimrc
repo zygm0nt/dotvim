@@ -29,9 +29,15 @@ set showmode
 set ttyfast
 set laststatus=2
 
+set relativenumber
+set number
+
 set foldmethod=marker
 set fillchars+=vert:\ 
 
+set list "show non-printable characters
+
+command! CopyMode set nolist | set norelativenumber
 
 autocmd Filetype python setlocal ts=2 sts=2 sw=2 expandtab ai
 
