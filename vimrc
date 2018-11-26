@@ -46,3 +46,6 @@ autocmd FocusLost * :wa  " save on losing focus
 
 cnoremap sudow w !sudo tee % >/dev/null
 
+hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
