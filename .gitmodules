@@ -55,3 +55,9 @@
 [submodule "bundle/vimtex"]
 	path = bundle/vimtex
 	url = https://github.com/lervag/vimtex
+[submodule "bundles/ultisnips"]
+	path = bundles/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
