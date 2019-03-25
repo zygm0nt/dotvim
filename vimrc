@@ -69,6 +69,9 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 " spellchecking + correction with ctrl+l
-setlocal spell
-set spelllang=pl,en_gb
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+"setlocal spell
+"set spelllang=pl,en_gb
+"inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" session support
+let g:session_autosave = 'yes'
