@@ -33,3 +33,8 @@ git submodule update
 
 Clojure additions inspired by
 http://www.neo.com/2014/02/25/getting-started-with-clojure-in-vim
+
+---------
+
+vim-airline and other stuff need custom fonts:
+https://github.com/ryanoasis/nerd-fonts

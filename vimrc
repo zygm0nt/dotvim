@@ -2,6 +2,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+set encoding=UTF-8
+
 set nocompatible
 set modelines=0 	"always show powerline
 
@@ -22,7 +24,7 @@ set showmode
 set ttyfast
 set laststatus=2
 
-set list "show non-printable characters
+"set list "show non-printable characters
 
 command! CopyMode set nolist | set norelativenumber
 
