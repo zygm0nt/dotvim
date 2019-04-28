@@ -110,7 +110,7 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 " session support
 let g:session_autosave = 'yes'
-let g:session_directory = 'session'
+let g:session_directory = '~/.vim/session'
 let g:session_autoload = 'no'
 
 " syntastic
