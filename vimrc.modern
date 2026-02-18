@@ -1,0 +1,253 @@
+" Modern Vim Configuration with vim-plug
+" ========================================
+
+set nocompatible
+
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+" ========================================
+" Plugins
+" ========================================
+call plug#begin('~/.vim/plugged')
+
+" File navigation and search
+Plug 'preservim/nerdtree'                          " File explorer
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy finder
+Plug 'junegunn/fzf.vim'                            " FZF vim integration
+Plug 'ryanoasis/vim-devicons'                      " File icons
+
+" Git integration
+Plug 'tpope/vim-fugitive'                          " Git commands
+
+" Code editing and completion
+Plug 'dense-analysis/ale'                          " Async linting/fixing
+Plug 'preservim/nerdcommenter'                     " Easy commenting
+Plug 'tpope/vim-surround'                          " Surround text objects
+Plug 'jiangmiao/auto-pairs'                        " Auto-close brackets
+Plug 'SirVer/ultisnips'                            " Snippet engine
+Plug 'honza/vim-snippets'                          " Snippet collection
+
+" Language support
+Plug 'sheerun/vim-polyglot'                        " Language pack (includes Python, Rust, YAML, JSON, etc.)
+Plug 'rust-lang/rust.vim'                          " Enhanced Rust support
+Plug 'plasticboy/vim-markdown'                     " Markdown support
+
+" UI and appearance
+Plug 'vim-airline/vim-airline'                     " Status line
+Plug 'vim-airline/vim-airline-themes'              " Airline themes
+Plug 'mhinz/vim-startify'                          " Start screen
+
+" Utilities
+Plug 'xolox/vim-misc'                              " Misc functions (dependency)
+Plug 'xolox/vim-session'                           " Session management
+
+" Optional: LaTeX support (comment out if not needed)
+Plug 'lervag/vimtex'                               " LaTeX support
+
+call plug#end()
+
+" ========================================
+" General Settings
+" ========================================
+syntax on
+filetype plugin indent on
+
+set encoding=UTF-8
+set modelines=0
+
+" Editing behavior
+set tw=72
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+set smartindent
+
+" UI settings
+set number                  " Show line numbers
+set relativenumber          " Relative line numbers
+set ruler
+set showcmd
+set showmode
+set laststatus=2
+set cursorline
+set ttyfast
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Performance
+set history=1000
+set viminfo='1000,f1,<500
+set updatetime=300         " Faster completion
+set timeoutlen=500         " Faster key sequence completion
+
+" Better display for messages
+set cmdheight=2
+
+" ========================================
+" Plugin Configuration
+" ========================================
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" Close vim if NERDTree is the only window remaining
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" FZF
+nnoremap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-f> :Rg<CR>
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'luna'
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" ALE (Asynchronous Lint Engine)
+let g:ale_linters = {
+\   'python': ['flake8', 'pylint', 'mypy'],
+\   'rust': ['cargo', 'rls', 'rustc'],
+\   'yaml': ['yamllint'],
+\   'json': ['jsonlint'],
+\   'markdown': ['markdownlint'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black', 'isort'],
+\   'rust': ['rustfmt'],
+\   'json': ['jq'],
+\   'yaml': ['prettier'],
+\}
+
+let g:ale_fix_on_save = 0          " Set to 1 to auto-fix on save
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_save = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+
+" Map for manual fixing
+nnoremap <leader>f :ALEFix<CR>
+
+" Rust
+let g:rustfmt_autosave = 1
+let g:rust_clip_command = 'pbcopy'  " macOS clipboard
+
+" Markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_new_list_item_indent = 2
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+
+" Session management
+let g:session_autosave = 'yes'
+let g:session_directory = '~/.vim/session'
+let g:session_autoload = 'no'
+
+" VimTeX (LaTeX)
+let g:tex_flavor = 'latex'
+let g:vimtex_quickfix_mode = 0
+set conceallevel=1
+let g:tex_conceal = 'abdmg'
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
+" ========================================
+" Key Mappings
+" ========================================
+
+" Set leader key
+let mapleader = ","
+
+" Quick escape
+inoremap jj <Esc>
+
+" Save with sudo
+cnoremap sudow w !sudo tee % >/dev/null
+
+" Save on focus lost
+autocmd FocusLost * :wa
+
+" Copy mode (for terminal copying)
+command! CopyMode set nolist | set norelativenumber | set nonumber
+
+" Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Clear search highlighting
+nnoremap <leader><space> :nohlsearch<CR>
+
+" ========================================
+" File-specific Settings
+" ========================================
+
+" Python
+autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab ai
+autocmd Filetype python setlocal colorcolumn=88  " Black's line length
+
+" YAML
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab ai
+
+" JSON
+autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab ai
+
+" Markdown
+autocmd Filetype markdown setlocal wrap linebreak nolist
+autocmd Filetype markdown setlocal spell spelllang=en_us
+
+" Rust
+autocmd Filetype rust setlocal ts=4 sts=4 sw=4 expandtab ai
+
+" ========================================
+" Terminal Settings
+" ========================================
+
+let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
+if &term == "screen"
+    set t_ts=^[k
+    set t_fs=^[\
+endif
+if &term == "screen" || &term == "xterm"
+    set title
+endif
+
+" ========================================
+" Custom Tab Line Colors
+" ========================================
+
+hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
