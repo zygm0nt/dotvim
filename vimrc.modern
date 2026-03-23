@@ -33,8 +33,8 @@ Plug 'dense-analysis/ale'                          " Async linting/fixing
 Plug 'preservim/nerdcommenter'                     " Easy commenting
 Plug 'tpope/vim-surround'                          " Surround text objects
 Plug 'jiangmiao/auto-pairs'                        " Auto-close brackets
-Plug 'SirVer/ultisnips'                            " Snippet engine
-Plug 'honza/vim-snippets'                          " Snippet collection
+"Plug 'SirVer/ultisnips'                            " Snippet engine
+"Plug 'honza/vim-snippets'                          " Snippet collection
 
 " Language support
 Plug 'sheerun/vim-polyglot'                        " Language pack (includes Python, Rust, YAML, JSON, etc.)
@@ -45,6 +45,7 @@ Plug 'plasticboy/vim-markdown'                     " Markdown support
 Plug 'vim-airline/vim-airline'                     " Status line
 Plug 'vim-airline/vim-airline-themes'              " Airline themes
 Plug 'mhinz/vim-startify'                          " Start screen
+Plug 'Yggdroot/indentLine'                         " Visual indentation guides
 
 " Utilities
 Plug 'xolox/vim-misc'                              " Misc functions (dependency)
@@ -181,6 +182,13 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
+
+" indentLine
+let g:indentLine_char = '┊'
+let g:indentLine_color_term = 239
+let g:indentLine_enabled = 1
+" Disable for certain filetypes
+let g:indentLine_fileTypeExclude = ['markdown', 'json', 'tex']
 
 " ========================================
 " Key Mappings
